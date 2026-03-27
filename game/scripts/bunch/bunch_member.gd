@@ -64,7 +64,7 @@ func use_skill() -> void:
 		return
 
 func take_damage(amount: int) -> void:
-	var final_damage := amount * (2 if _is_weak_to_current_environment() else 1)
+	var final_damage: int = amount * (2 if _is_weak_to_current_environment() else 1)
 	_hp -= final_damage
 	if _hp <= 0:
 		_die()

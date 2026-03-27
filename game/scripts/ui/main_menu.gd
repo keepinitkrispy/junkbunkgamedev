@@ -28,7 +28,7 @@ func _draw() -> void:
 		var x := rng.randf_range(0, 320)
 		var y := rng.randf_range(0, 180)
 		var r := rng.randf_range(1.0, 3.0)
-		var col := [C_ORANGE, C_YELLOW, Color("7bc67e"), Color("00b4ff")][rng.randi() % 4]
+		var col: Color = [C_ORANGE, C_YELLOW, Color("7bc67e"), Color("00b4ff")][rng.randi() % 4]
 		col.a = rng.randf_range(0.2, 0.5)
 		draw_circle(Vector2(x, y), r, col)
 

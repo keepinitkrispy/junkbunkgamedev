@@ -26,8 +26,11 @@ func load_world(world_id: String) -> void:
 	if file == null:
 		push_error("Wave data not found: " + path)
 		return
-	var result := JSON.parse_string(file.get_as_text())
-	_wave_data = result.get("waves", [])
+	var result: Variant = JSON.parse_string(file.get_as_text())
+	if result == null or not result is Dictionary:
+		push_error("Wave data malformed: " + path)
+		return
+	_wave_data = (result as Dictionary).get("waves", [])
 	_current_wave = 0
 
 func start_next_wave() -> void:
