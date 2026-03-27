@@ -16,6 +16,7 @@ const LANE_END_X := 16    # home base X
 var _lanes: Array = []   # Array of lane node references
 
 func _ready() -> void:
+	add_to_group("lane_manager")
 	_build_lanes()
 
 func _build_lanes() -> void:

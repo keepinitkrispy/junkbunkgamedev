@@ -1,0 +1,35 @@
+[gd_scene load_steps=2 format=3 uid="uid://sqsel001"]
+
+[ext_resource type="Script" path="res://scripts/ui/squad_select.gd" id="1_sqsel"]
+
+[node name="SquadSelect" type="CanvasLayer"]
+script = ExtResource("1_sqsel")
+
+[node name="Panel" type="Panel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="VBox" type="VBoxContainer" parent="Panel"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -110.0
+offset_top = -80.0
+offset_right = 110.0
+offset_bottom = 80.0
+
+[node name="Title" type="Label" parent="Panel/VBox"]
+text = "Pick Your Bunch!"
+horizontal_alignment = 1
+
+[node name="Grid" type="GridContainer" parent="Panel/VBox"]
+columns = 3
+size_flags_vertical = 3
+
+[node name="SquadDisplay" type="HBoxContainer" parent="Panel/VBox"]
+custom_minimum_size = Vector2(0, 20)
+
+[node name="ConfirmBtn" type="Button" parent="Panel/VBox"]
+text = "Let's Go!"
+disabled = true

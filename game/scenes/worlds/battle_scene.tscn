@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://battle001"]
+
+[ext_resource type="Script" path="res://scripts/worlds/battle_scene.gd" id="1_battle"]
+[ext_resource type="Script" path="res://scripts/worlds/classroom_background.gd" id="2_bg"]
+[ext_resource type="Script" path="res://scripts/core/lane_manager.gd" id="3_lane"]
+[ext_resource type="Script" path="res://scripts/core/wave_manager.gd" id="4_wave"]
+[ext_resource type="PackedScene" uid="uid://hud001" path="res://scenes/ui/hud.tscn" id="5_hud"]
+[ext_resource type="PackedScene" uid="uid://sqsel001" path="res://scenes/ui/squad_select.tscn" id="6_sqsel"]
+
+[node name="BattleScene" type="Node2D"]
+script = ExtResource("1_battle")
+
+[node name="ClassroomBackground" type="Node2D" parent="."]
+script = ExtResource("2_bg")
+
+[node name="LaneManager" type="Node2D" parent="."]
+script = ExtResource("3_lane")
+lane_count = 3
+
+[node name="WaveManager" type="Node" parent="."]
+script = ExtResource("4_wave")
+
+[node name="SpawnTimer" type="Timer" parent="WaveManager"]
+one_shot = true
+
+[node name="HUD" parent="." instance=ExtResource("5_hud")]
+visible = false
+
+[node name="SquadSelect" parent="." instance=ExtResource("6_sqsel")]
+
+[node name="PhaseOverlay" type="ColorRect" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0, 0, 0, 0.5)
+mouse_filter = 2

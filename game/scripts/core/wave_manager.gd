@@ -14,7 +14,11 @@ var _spawn_queue: Array = []
 var _enemies_alive: int = 0
 var _spawning: bool = false
 
-@onready var _spawn_timer: Timer = $SpawnTimer
+var _spawn_timer: Timer
+
+func _ready() -> void:
+	_spawn_timer = $SpawnTimer
+	_spawn_timer.timeout.connect(_on_spawn_timer_timeout)
 
 func load_world(world_id: String) -> void:
 	var path := WAVE_DATA_PATH + world_id + ".json"
