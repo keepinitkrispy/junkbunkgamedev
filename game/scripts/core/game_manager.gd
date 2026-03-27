@@ -52,7 +52,7 @@ func add_scrap(amount: int) -> void:
 	scrap_changed.emit(scrap)
 
 func spend_scrap(amount: int) -> bool:
-	var cost := max(0, amount - meta_upgrades["cost_reduction"])
+	var cost: int = max(0, amount - (meta_upgrades["cost_reduction"] as int))
 	if scrap < cost:
 		return false
 	scrap -= cost
@@ -100,9 +100,10 @@ func load_save() -> void:
 	if not FileAccess.file_exists(SAVE_PATH):
 		return
 	var file := FileAccess.open(SAVE_PATH, FileAccess.READ)
-	var result := JSON.parse_string(file.get_as_text())
-	if result == null:
+	var result: Variant = JSON.parse_string(file.get_as_text())
+	if result == null or not result is Dictionary:
 		return
-	unlocked_bunch = result.get("unlocked_bunch", unlocked_bunch)
-	junk_tokens = result.get("junk_tokens", 0)
-	meta_upgrades = result.get("meta_upgrades", meta_upgrades)
+	var d := result as Dictionary
+	unlocked_bunch = d.get("unlocked_bunch", unlocked_bunch)
+	junk_tokens = d.get("junk_tokens", 0)
+	meta_upgrades = d.get("meta_upgrades", meta_upgrades)

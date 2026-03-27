@@ -12,8 +12,11 @@ func _ready() -> void:
 	if file == null:
 		push_error("bunch_roster.json not found")
 		return
-	var parsed := JSON.parse_string(file.get_as_text())
-	for entry in parsed.get("bunch", []):
+	var parsed: Variant = JSON.parse_string(file.get_as_text())
+	if parsed == null or not parsed is Dictionary:
+		push_error("bunch_roster.json is malformed")
+		return
+	for entry in (parsed as Dictionary).get("bunch", []):
 		_roster[entry["id"]] = entry
 
 func get_data(id: String) -> Dictionary:

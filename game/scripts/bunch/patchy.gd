@@ -34,7 +34,7 @@ func _get_targets() -> Array:
 	if _stretching:
 		if lane_index > 0:
 			lanes_to_hit.append(lane_index - 1)
-		if lane_index < LaneManager.MAX_LANES - 1:
+		if lane_index < 4:
 			lanes_to_hit.append(lane_index + 1)
 
 	var enemies := get_tree().get_nodes_in_group("enemies")

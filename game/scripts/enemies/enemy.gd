@@ -42,7 +42,7 @@ func _process(delta: float) -> void:
 		_blocked = false
 		var speed := move_speed * (0.5 if is_slowed else 1.0)
 		position.x -= speed * delta
-		if position.x <= LaneManager.LANE_END_X:
+		if position.x <= 16.0:
 			_reach_end()
 
 func _find_target() -> void:
@@ -76,7 +76,9 @@ func _clear_after(effect: String, duration: float) -> void:
 		"stun": is_stunned = false
 
 func _reach_end() -> void:
-	LaneManager.notify_enemy_reached_end(lane_index)
+	var lm := get_tree().get_first_node_in_group("lane_manager")
+	if lm:
+		lm.call("notify_enemy_reached_end", lane_index)
 	WaveManager.notify_enemy_removed()
 	queue_free()
 
