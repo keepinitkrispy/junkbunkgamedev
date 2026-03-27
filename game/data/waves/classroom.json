@@ -1,0 +1,64 @@
+{
+  "world_id": "classroom",
+  "world_name": "Chalk & Chaos",
+  "lane_count": 3,
+  "waves": [
+    {
+      "wave": 1,
+      "description": "A slow trickle of Pencil Jabbers to learn the basics.",
+      "spawns": [
+        { "enemy": "pencil_jabber", "lane": 0, "delay": 0.0 },
+        { "enemy": "pencil_jabber", "lane": 2, "delay": 1.5 },
+        { "enemy": "pencil_jabber", "lane": 1, "delay": 3.0 }
+      ]
+    },
+    {
+      "wave": 2,
+      "description": "Eraser Chunks join the pencils. Watch for death clouds.",
+      "spawns": [
+        { "enemy": "pencil_jabber", "lane": 0, "delay": 0.0 },
+        { "enemy": "eraser_chunk", "lane": 1, "delay": 1.0 },
+        { "enemy": "pencil_jabber", "lane": 2, "delay": 1.5 },
+        { "enemy": "eraser_chunk", "lane": 0, "delay": 3.0 },
+        { "enemy": "pencil_jabber", "lane": 1, "delay": 4.0 }
+      ]
+    },
+    {
+      "wave": 3,
+      "description": "Glue Globs slow your Bunch down. Prioritise them.",
+      "spawns": [
+        { "enemy": "glue_glob",     "lane": 1, "delay": 0.0 },
+        { "enemy": "pencil_jabber", "lane": 0, "delay": 0.5 },
+        { "enemy": "pencil_jabber", "lane": 2, "delay": 0.5 },
+        { "enemy": "eraser_chunk",  "lane": 0, "delay": 2.0 },
+        { "enemy": "glue_glob",     "lane": 2, "delay": 2.5 },
+        { "enemy": "pencil_jabber", "lane": 1, "delay": 3.5 }
+      ]
+    },
+    {
+      "wave": 4,
+      "description": "All three enemy types at once. Manage your lanes.",
+      "spawns": [
+        { "enemy": "eraser_chunk",  "lane": 0, "delay": 0.0 },
+        { "enemy": "glue_glob",     "lane": 1, "delay": 0.0 },
+        { "enemy": "pencil_jabber", "lane": 2, "delay": 0.0 },
+        { "enemy": "pencil_jabber", "lane": 0, "delay": 1.5 },
+        { "enemy": "eraser_chunk",  "lane": 2, "delay": 1.5 },
+        { "enemy": "glue_glob",     "lane": 0, "delay": 3.0 },
+        { "enemy": "pencil_jabber", "lane": 1, "delay": 3.0 },
+        { "enemy": "eraser_chunk",  "lane": 1, "delay": 4.5 },
+        { "enemy": "glue_glob",     "lane": 2, "delay": 5.0 }
+      ]
+    },
+    {
+      "wave": 5,
+      "description": "BOSS WAVE — The Substitute arrives.",
+      "spawns": [
+        { "enemy": "pencil_jabber", "lane": 0, "delay": 0.0 },
+        { "enemy": "pencil_jabber", "lane": 2, "delay": 0.0 },
+        { "enemy": "eraser_chunk",  "lane": 1, "delay": 2.0 },
+        { "enemy": "the_substitute","lane": 1, "delay": 5.0 }
+      ]
+    }
+  ]
+}

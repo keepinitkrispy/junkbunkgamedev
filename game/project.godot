@@ -1,0 +1,39 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; but this file is created by hand for initial scaffold.
+
+config_version=5
+
+[application]
+
+config/name="The Junk Bunch Adventures"
+config/description="A roguelite squad defense game featuring misfit junk characters."
+run/main_scene="res://scenes/ui/main_menu.tscn"
+config/features=PackedStringArray("4.2", "GL Compatibility")
+config/icon="res://assets/sprites/ui/icon.png"
+
+[display]
+
+window/size/viewport_width=320
+window/size/viewport_height=180
+window/size/resizable=false
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+textures/canvas_textures/default_texture_filter=0
+
+[autoload]
+
+GameManager="*res://scripts/core/game_manager.gd"
+BunchData="*res://scripts/core/bunch_data.gd"
+EnemySpawner="*res://scripts/core/enemy_spawner.gd"
+
+[input]
+
+ui_place={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":32,"key_label":0,"unicode":32,"echo":false,"script":null)]
+}
