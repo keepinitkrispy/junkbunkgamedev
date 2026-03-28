@@ -25,16 +25,17 @@ func _populate_upgrades() -> void:
 	for child in $UpgradePanel/VBox/List.get_children():
 		child.queue_free()
 	var options: Array[Dictionary] = [
-		{ "id": "scrap_boost",  "label": "+ 3 Scrap" },
-		{ "id": "hp_boost",     "label": "All Bunch +20 HP" },
-		{ "id": "speed_boost",  "label": "Attack Speed +25%" },
+		{ "id": "scrap_boost", "label": "+ 3 Scrap" },
+		{ "id": "hp_boost",    "label": "All Bunch +20 HP" },
+		{ "id": "speed_boost", "label": "Attack Speed +25%" },
 	]
 	for opt in options:
 		var btn := Button.new()
 		btn.text = opt["label"]
+		var opt_id: String = opt["id"]
 		btn.pressed.connect(func():
 			$UpgradePanel.visible = false
-			_apply_upgrade(opt["id"])
+			_apply_upgrade(opt_id)
 			GameManager.set_phase(GameManager.Phase.WAVE)
 		)
 		$UpgradePanel/VBox/List.add_child(btn)

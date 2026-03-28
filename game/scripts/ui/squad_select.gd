@@ -14,9 +14,10 @@ func _populate_grid() -> void:
 	for id in GameManager.unlocked_bunch:
 		var data: Dictionary = BunchData.get_data(id)
 		var btn := Button.new()
-		btn.text = "%s\nCost:%d" % [data.get("name", id), data.get("deploy_cost", 5)]
+		btn.text = "%s\nCost: %d" % [data.get("name", id), data.get("deploy_cost", 5)]
 		btn.custom_minimum_size = Vector2(60, 40)
-		btn.pressed.connect(func(): _toggle(id, btn))
+		var btn_id: String = id
+		btn.pressed.connect(func(): _toggle(btn_id, btn))
 		$Panel/VBox/Grid.add_child(btn)
 
 func _toggle(id: String, btn: Button) -> void:
